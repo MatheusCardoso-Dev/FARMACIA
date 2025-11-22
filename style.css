@@ -1,0 +1,242 @@
+/* ============================================
+   DEVFARM - Estilos Adicionais
+   ============================================ */
+
+/* Animações personalizadas */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slideIn {
+    animation: slideIn 0.3s ease;
+}
+
+/* Remover animação dos itens do carrinho para evitar "pulos" */
+#cartItems > div {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Garantir que não há transições que causem "pulos" */
+#cartItems {
+    scroll-behavior: auto;
+}
+
+/* Evitar reflow/repaint desnecessários */
+#cartItems > div {
+    will-change: auto;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease;
+}
+
+/* Melhorias de acessibilidade */
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #13ec5b;
+    outline-offset: 2px;
+}
+
+/* Transições suaves */
+* {
+    transition-property: color, background-color, border-color, transform, opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Melhorias no carrinho */
+#cartSidebar {
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#cartOverlay {
+    backdrop-filter: blur(2px);
+}
+
+/* Badge do carrinho */
+.cart-badge {
+    font-size: 0.75rem;
+    line-height: 1;
+}
+
+/* Mensagens de erro do formulário */
+.error-message {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+}
+
+/* Melhorias responsivas */
+@media (max-width: 768px) {
+    #cartSidebar {
+        max-width: 100%;
+    }
+}
+
+/* Loading states */
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Hover effects melhorados */
+button:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+/* Botão flutuante do carrinho */
+#floatingCartButton {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+#floatingCartButton:hover {
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+#floatingCartButton:active {
+    transform: translateY(0) scale(0.95) !important;
+}
+
+/* Garantir que o botão flutuante não seja afetado por outras transformações */
+#floatingCartButton.translate-y-0 {
+    transform: translateY(0) !important;
+}
+
+#floatingCartButton.translate-y-20 {
+    transform: translateY(80px) !important;
+}
+
+/* Animação sutil de bounce quando há itens */
+@keyframes bounce-subtle {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* Transição suave para aparecer/desaparecer */
+#floatingCartButton.translate-y-20 {
+    transform: translateY(80px);
+}
+
+#floatingCartButton.opacity-0 {
+    pointer-events: none;
+}
+
+/* Badge do carrinho no header */
+#cartCount {
+    font-size: 0.75rem;
+    line-height: 1;
+    min-width: 1.25rem;
+}
+
+/* Melhorias no carrinho flutuante */
+#floatingCartCount {
+    font-size: 0.75rem;
+    line-height: 1;
+    min-width: 1.5rem;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Garantir z-index correto */
+#floatingCartButton {
+    z-index: 40;
+}
+
+#cartSidebar {
+    z-index: 50;
+}
+
+#cartOverlay {
+    z-index: 45;
+}
+
+/* Responsividade do botão flutuante */
+@media (max-width: 768px) {
+    #floatingCartButton {
+        bottom: 1rem;
+        right: 1rem;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    
+    #floatingCartButton .material-symbols-outlined {
+        font-size: 1.75rem;
+    }
+}
+
+/* Estilos para Login com Google */
+#googleLoginPopup {
+    animation: fadeIn 0.3s ease;
+}
+
+#userDropdown {
+    animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#loginButton img {
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#googleSignInButton {
+    transition: all 0.2s ease;
+}
+
+#googleSignInButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#googleSignInButton:active {
+    transform: translateY(0);
+}
